@@ -9,8 +9,8 @@ public class RegisterTest extends BaseTest {
     @Test
     public void registerWithValidDataTest() {
         SoftAssert soft = new SoftAssert();
-        String validUsername = "dvid";
-        String validEmail = "daaam@gmail.com";
+        String validUsername = "Patrick";
+        String validEmail = "patrick@gmail.com";
         String validPassword = "123455";
         HomePage home = new HomePage(driver);
         var accountPage = home.goToAccount();
@@ -40,8 +40,8 @@ public class RegisterTest extends BaseTest {
         @Test
     public void registerWithExistingAccountTest(){
             SoftAssert soft = new SoftAssert();
-            String validUsername = "";
-            String validEmail = "diam@gmail.com";
+            String validUsername = "Patrick";
+            String validEmail = "patrick@gmail.com";
             String validPassword = "123455";
             HomePage home = new HomePage(driver);
             var accountPage = home.goToAccount();

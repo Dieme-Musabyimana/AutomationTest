@@ -10,7 +10,7 @@ public class CartPage {
     }
     private By cartPageHeading = By.xpath("//*[@id=\"post-1220\"]/div/div/div/h1");
     private By addedItem = By.linkText("Denim Blue Jeans");
-    private By proceedToCheckout = By.cssSelector("a[class=\"checkout-button button alt wc-forward\"]");
+    private By proceedToCheckout = By.cssSelector(".checkout-button.alt.wc-forward");
 
     public String getCartPageHeading(){
         return driver.findElement(cartPageHeading).getText().trim();

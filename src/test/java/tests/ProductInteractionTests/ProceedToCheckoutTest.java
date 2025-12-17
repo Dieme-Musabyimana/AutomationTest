@@ -3,19 +3,33 @@ package tests.ProductInteractionTests;
 import base.BaseTest;
 import org.testng.annotations.Test;
 import pages.CartPage;
-import pages.CheckoutPage;
 import pages.StorePage;
 
 public class ProceedToCheckoutTest extends BaseTest {
+
     @Test
-    public void addtoCartTest(){
+    public void fillFormTest(){
         StorePage store = homePage.goToStore();
-        String country = "Niger";
         store.addProductsToCart();
+        String country = "United States (US)";
+        String state = "California";
         CartPage cart = homePage.goToCart();
-        cart.proceedToCheckout();
-        CheckoutPage checkout = cart.proceedToCheckout();
-        checkout.selectCountry(country);
+        var CheckOutPage=cart.proceedToCheckout();
+        CheckOutPage.selectCountry(country);
+        CheckOutPage.selectState(state);
+        CheckOutPage.fillCheckoutForm(
+                "John",
+                "Karake",
+                "Street 12",
+                "Kigali",
+                "Tahoua",
+                "00000",
+                "karake@gmail.com",
+                   "Hey, I am placing this order, I hope deliver is free"   );
+
+        CheckOutPage.placeOrder();
+
+
     }
 }
 
