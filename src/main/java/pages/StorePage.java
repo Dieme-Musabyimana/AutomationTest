@@ -3,17 +3,23 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
 public class StorePage {
     public WebDriver driver;
+    private WebDriverWait wait;
     protected BasicBlueJeansPage basicBlueJeansPage;
 
     public StorePage(WebDriver driver) {
         this.driver = driver;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
     }
 
     private By Store = By.cssSelector("h1.woocommerce-products-header__title.page-title");
@@ -28,7 +34,10 @@ public class StorePage {
     }
 
     public BasicBlueJeansPage goToBasicBlueJeansPage() {
-        driver.findElement(BasicBlueJeans).click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        WebElement jeans = wait.until(ExpectedConditions.elementToBeClickable(BasicBlueJeans));
+
+        jeans.click();
         return new BasicBlueJeansPage(driver);
     }
 

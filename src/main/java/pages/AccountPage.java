@@ -35,6 +35,11 @@ public class AccountPage {
     private By loginButton = By.name("login");
     private By rememberMeBox= By.id("rememberme");
 
+    private By orderLink = By.linkText("Orders");
+    private By DownloadsLink = By.linkText("Downloads");
+    private By AddresseLink = By.linkText("Addresses");
+    private By order = By.linkText("Orders");
+
     public DashboardPage setValidCredentials(String validUsername, String validEmail, String validPassword){
         driver.findElement(usernameRegField).sendKeys(validUsername);
         driver.findElement(emailRegField).sendKeys(validEmail);

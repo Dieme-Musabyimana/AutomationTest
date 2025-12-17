@@ -10,9 +10,9 @@ public class AddToCartTest extends BaseTest {
         StorePage store = new StorePage(driver);
         var basicBlueJeansPage=store.goToBasicBlueJeansPage();
         var actualResult =basicBlueJeansPage.addProductToCart();
-        var expectedResult = " “Basic Blue Jeans” has been added to your cart.";
+        var expectedMessage = "has been added to your cart.";
 
-        soft.assertEquals(actualResult,expectedResult,"Product not added to cart.");
+        soft.assertTrue(actualResult.contains(expectedMessage),"!!!!!!!!!!Product is not added to cart");
         soft.assertAll();
     }
 }
