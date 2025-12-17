@@ -77,8 +77,8 @@ public class CheckoutPage {
     }
     public void placeOrder(){
         driver.findElement(paymentMethod).click();
-        WebElement button = wait.until(ExpectedConditions.elementToBeClickable(placeOrderButton));
-        button.click();
+       driver.findElement(placeOrderButton).click();
+        WebElement success = wait.until(ExpectedConditions.visibilityOfElementLocated(successMessage));
         driver.findElement(successMessage).getText().trim();
     }
 }

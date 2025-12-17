@@ -25,7 +25,7 @@ public class ProceedToCheckoutTest extends BaseTest {
                 "Tahoua",
                 "00000",
                 "karake@gmail.com",
-                   "Hey, I am placing this order, I hope deliver is free"   );
+                   "Hey, I am placing this order, I hope it is free delivery right?"   );
 
         CheckOutPage.placeOrder();
 
