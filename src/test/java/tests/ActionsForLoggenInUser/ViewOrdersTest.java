@@ -9,6 +9,9 @@ public class ViewOrdersTest extends BaseTest {
     public void viewOrdersTest(){
     AccountPage account = homePage.goToAccount();
     account.login("Josue","22222");
-    account.goToOrder().ClickViewBtn();
+    String actualResults = account.goToOrder().ClickViewBtn();
+    String expectedCurrenUrl = "/view-order/";
+    soft.assertTrue(actualResults.contains(expectedCurrenUrl),"!!!!View order failed!!!!!!!");
+    soft.assertAll();
 }
 }

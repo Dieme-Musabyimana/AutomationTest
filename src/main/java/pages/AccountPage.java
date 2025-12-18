@@ -62,10 +62,10 @@ public class AccountPage {
         driver.findElement(orderLink).click();
         return new ViewOrdersPage(driver);
     }
-//    public DownloadPage goToDownloads(){
-//        driver.findElement(DownloadsLink).click();
-//        return new DownloadPage(driver);
-//    }
+    public DownloadPage goToDownloads() {
+        driver.findElement(DownloadsLink).click();
+        return new DownloadPage(driver);
+    }
 //    public AddressPage goToAddress(){
 //        driver.findElement(AddresseLink).click();
 //        return new AddressPage(driver);

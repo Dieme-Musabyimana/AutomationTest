@@ -2,6 +2,7 @@ package base;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.asserts.SoftAssert;
 import pages.HomePage;
@@ -19,13 +20,14 @@ public class BaseTest {
         driver.get("https://askomdch.com/");
         homePage = new HomePage(driver);
         soft = new SoftAssert();
-    }}
+    }
 
-//    @AfterMethod
+    @AfterMethod
 
-//    public void tearDown() {
-//        if (driver != null)
-//            driver.quit();
-//        }
+    public void tearDown() {
+        if (driver != null)
+            driver.quit();
+    }
+}
 
 

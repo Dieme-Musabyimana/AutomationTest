@@ -8,20 +8,17 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class ViewOrdersPage {
+public class DownloadPage {
     public WebDriver driver;
     public WebDriverWait wait;
-    public ViewOrdersPage(WebDriver driver){
+    public DownloadPage(WebDriver driver){
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
     }
-    private By viewOrderBtn = By.cssSelector("a.woocommerce-button.button.view");
-
-    public String ClickViewBtn(){
-        WebElement view = wait.until(ExpectedConditions.elementToBeClickable(viewOrderBtn));
-        view.click();
+    private By browseProduct = By.xpath("//*[@id=\"post-1235\"]/div/div[2]/div/div[2]/div/div[2]/a");
+    public String browseProduct(){
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(browseProduct));
+        element.click();
         return driver.getCurrentUrl();
-
     }
 }
