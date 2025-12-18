@@ -38,7 +38,8 @@ public class AccountPage {
     private By orderLink = By.linkText("Orders");
     private By DownloadsLink = By.linkText("Downloads");
     private By AddresseLink = By.linkText("Addresses");
-    private By order = By.linkText("Orders");
+    private By AccountDetails = By.linkText("Account details");
+    private By logoutLink = By.linkText("Logout");
 
     public DashboardPage setValidCredentials(String validUsername, String validEmail, String validPassword){
         driver.findElement(usernameRegField).sendKeys(validUsername);
@@ -57,5 +58,25 @@ public class AccountPage {
         driver.findElement(loginButton).click();
         return new DashboardPage(driver);
     }
+    public ViewOrdersPage goToOrder(){
+        driver.findElement(orderLink).click();
+        return new ViewOrdersPage(driver);
+    }
+//    public DownloadPage goToDownloads(){
+//        driver.findElement(DownloadsLink).click();
+//        return new DownloadPage(driver);
+//    }
+//    public AddressPage goToAddress(){
+//        driver.findElement(AddresseLink).click();
+//        return new AddressPage(driver);
+//    }
+//    public AccountDetailsPage goToAccountDetail(){
+//        driver.findElement(AccountDetails).click();
+//        return new AccountDetailsPage(driver);
+//    }
+//    public AccountPage logout(){
+//        driver.findElement(logoutLink).click();
+//        return new AccountPage(driver);
+//    }
 }
 

@@ -22,7 +22,6 @@ public class ProceedToCheckoutTest extends BaseTest {
                 "Karake",
                 "Street 12",
                 "Kigali",
-                "Tahoua",
                 "00000",
                 "karake@gmail.com",
                    "Hey, I am placing this order, I hope it is free delivery right?"   );
