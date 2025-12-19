@@ -8,7 +8,7 @@ public class LoginTest extends BaseTest {
     @Test
     public void loginWithExistingAccount(){
         AccountPage account = homePage.goToAccount();
-       var dashBoardPage =  account.login("Patrick","123455");
+       var dashBoardPage =  account.login("Josue","22222");
        var actualResult =  dashBoardPage.getDashboardMessage();
        var expectedResult = "Dashboard";
        soft.assertEquals(actualResult,expectedResult,"Login Failed!!!");

@@ -14,7 +14,8 @@ public class CheckoutPage {
     private final WebDriverWait wait;
     public CheckoutPage(WebDriver driver){
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));    }
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+    }
     private By firstNameField = By.id("billing_first_name");
     private By lastNameField = By.id("billing_last_name");
     private By countryDropDown = By.id("billing_country");
@@ -33,7 +34,6 @@ public class CheckoutPage {
                                   String lastName,
                                   String address,
                                   String city,
-                                  String stateName, // Added this parameter
                                   String zipcode,
                                   String emailAddress,
                                  String OrderNotes
@@ -47,20 +47,6 @@ public class CheckoutPage {
         driver.findElement(orderNotes).sendKeys(OrderNotes);
 
 
-
-        // 2. Handle the State safely
-        // We check if the state field exists before trying to interact with it
-//        try {
-//            WebElement stateElem = driver.findElement(By.id("billing_state"));
-//            if (stateElem.getTagName().equals("select")) {
-//                new Select(stateElem).selectByVisibleText(stateName);
-//            } else {
-//                stateElem.clear();
-//                stateElem.sendKeys(stateName);
-//            }
-//        } catch (Exception e) {
-//            System.out.println("State field not found or not required for this country.");
-//        }
 
         driver.findElement(zipCode).sendKeys(zipcode);
         driver.findElement(email).sendKeys(emailAddress);
@@ -79,6 +65,8 @@ public class CheckoutPage {
         driver.findElement(paymentMethod).click();
        driver.findElement(placeOrderButton).click();
         WebElement success = wait.until(ExpectedConditions.visibilityOfElementLocated(successMessage));
-        driver.findElement(successMessage).getText().trim();
+        success.getText().trim();
+
+
     }
 }

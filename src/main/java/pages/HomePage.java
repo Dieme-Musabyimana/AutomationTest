@@ -1,12 +1,19 @@
 package pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class HomePage {
     public WebDriver driver;
+    public WebDriverWait wait;
+
     public HomePage(WebDriver driver){
         this.driver = driver;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
     }
     private By Home = By.linkText("Home");
     private By Store = By.linkText("Store");
@@ -18,6 +25,7 @@ public class HomePage {
     private By ContactUs = By.linkText("Contact Us");
     private By cart = By.xpath("//*[@id=\"ast-site-header-cart\"]/div[1]/a/div/span");
     private By shopNow = By.xpath("//*[@id=\"post-61\"]/div/div[1]/div/div/div/div/div[1]/a");
+    private By ViewToCart = By.linkText("VIEW CART");
 
 
     public HomePage goToHome(){
@@ -60,5 +68,15 @@ public class HomePage {
     public StorePage gotoShopNow(){
         driver.findElement(shopNow).click();
         return new StorePage(driver);
+    }
+    public String hoverToCart(){
+        Actions actions = new Actions(driver);
+        WebElement cartIcon = driver.findElement(cart);
+        actions.moveToElement(cartIcon).perform();
+        WebElement viewButton = wait.until(ExpectedConditions.elementToBeClickable(ViewToCart));
+            viewButton.click();
+
+        wait.until(ExpectedConditions.urlContains("/cart/"));
+        return driver.getCurrentUrl();
     }
 }

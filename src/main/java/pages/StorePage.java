@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -29,6 +30,10 @@ public class StorePage {
     private By darkBrownJeans = By.xpath("//*[@id=\"main\"]/div/ul/li[1]/div[1]/a/img");
     private By DenimBlueJeans = By.xpath("//*[@id=\"main\"]/div/ul/li[3]/div[2]/a[1]/h2");
 
+    private By priceSlider = By.cssSelector(".price_slider");
+    private By leftHandle = By.cssSelector(".price_slider span:nth-of-type(1)");
+    private By rightHandle = By.cssSelector(".price_slider span:nth-of-type(2)");
+    private By filterButton = By.cssSelector("button.button[type='submit']");
     public String getStorePageHeading() {
         return driver.findElement(Store).getText().trim();
     }
@@ -56,6 +61,24 @@ public class StorePage {
     public void addProductsToCart(){
         driver.findElement(darkBrownJeans).click();
         driver.findElement(addToCartButton).click();
+    }
+    public void filterByPriceRange(int targetMin, int targetMax) {
+        WebElement slider = wait.until(ExpectedConditions.presenceOfElementLocated(priceSlider));
+        WebElement left = driver.findElement(leftHandle);
+        WebElement right = driver.findElement(rightHandle);
+
+        int width = slider.getSize().getWidth();
+        double totalRange = 150 - 10;
+        double pixelPerDollar = width / totalRange;
+
+        int moveLeft = (int) ((targetMin - 10) * pixelPerDollar);
+        int moveRight = (int) ((targetMax - 150) * pixelPerDollar);
+
+        Actions actions = new Actions(driver);
+        actions.dragAndDropBy(left, moveLeft, 0).build().perform();
+        actions.dragAndDropBy(right, moveRight, 0).build().perform();
+
+        driver.findElement(filterButton).click();
     }
 }
 
