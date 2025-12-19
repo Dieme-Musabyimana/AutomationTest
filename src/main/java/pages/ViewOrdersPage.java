@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class ViewOrdersPage {
-    public WebDriver driver;
+    private WebDriver driver;
     public WebDriverWait wait;
     public ViewOrdersPage(WebDriver driver){
         this.driver = driver;

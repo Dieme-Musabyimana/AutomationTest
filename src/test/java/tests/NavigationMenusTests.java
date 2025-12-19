@@ -69,7 +69,7 @@ public void aboutPageTest(){
         HomePage home = new HomePage(driver);
         var contactUsPage = home.goToContactUs();
         var actualContactResult = contactUsPage.getContactUsPageHeading();
-        var expectedContactUsResult = "Contact s";
+        var expectedContactUsResult = "Contact Us";
         soft.assertEquals(actualContactResult,expectedContactUsResult,"Contact Us page redirection failure");
         soft.assertAll();
 }

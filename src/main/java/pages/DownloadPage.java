@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class DownloadPage {
-    public WebDriver driver;
+    private WebDriver driver;
     public WebDriverWait wait;
     public DownloadPage(WebDriver driver){
         this.driver = driver;

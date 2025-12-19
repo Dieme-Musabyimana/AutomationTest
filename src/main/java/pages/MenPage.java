@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class MenPage {
-    public WebDriver driver;
+    private WebDriver driver;
     public MenPage(WebDriver driver){
         this.driver=driver;
     }

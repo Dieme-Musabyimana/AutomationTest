@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class CheckoutPage {
-    public WebDriver driver;
+    private WebDriver driver;
     private final WebDriverWait wait;
     public CheckoutPage(WebDriver driver){
         this.driver = driver;
@@ -39,7 +39,6 @@ public class CheckoutPage {
                                  String OrderNotes
     ) {
 
-        // 1. Fill standard text fields
         driver.findElement(firstNameField).sendKeys(firstName);
         driver.findElement(lastNameField).sendKeys(lastName);
         driver.findElement(street).sendKeys(address);
