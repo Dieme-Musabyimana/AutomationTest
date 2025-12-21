@@ -7,7 +7,9 @@ import pages.DownloadPage;
 
 public class DownLoadTest extends BaseTest {
     @Test
-public void DownloadTest(){AccountPage account = homePage.goToAccount();account.login("Josue","22222");
+public void DownloadTest(){
+        AccountPage account = homePage.goToAccount();
+        account.login("Josue","22222");
       DownloadPage download = account.goToDownloads();
       String actualResult = download.browseProduct();
       String expectedUrl = "/store/";
