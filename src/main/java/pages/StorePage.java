@@ -47,6 +47,7 @@ public class StorePage {
 
     public List<String> getAllDropDowns() {
         WebElement dropDown = driver.findElement(sortingDropDown);
+        dropDown.click();
         Select select = new Select(dropDown);
         List<WebElement> allOptions = select.getOptions();
         List<String> allOptionsText = new ArrayList<>();

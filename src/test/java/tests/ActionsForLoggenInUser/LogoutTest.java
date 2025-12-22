@@ -11,7 +11,7 @@ public class LogoutTest extends BaseTest {
         account.login("Josue","22222");
         account.logout();
         String actualCurrentUrl = driver.getCurrentUrl();
-        String expectedUrl = "https://askomdch.co/account/";
+        String expectedUrl = "https://askomdch.com/account/";
         soft.assertEquals(actualCurrentUrl,expectedUrl, "url mismatch");
         soft.assertAll();
     }

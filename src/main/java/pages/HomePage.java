@@ -1,6 +1,8 @@
 package pages;
 
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -15,6 +17,13 @@ public class HomePage {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
     }
+    private void pauseForDebug(int milliseconds) {
+        try {
+            Thread.sleep(milliseconds);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
     private By Home = By.linkText("Home");
     private By Store = By.linkText("Store");
     private By Men = By.linkText("Men");
@@ -27,11 +36,6 @@ public class HomePage {
     private By shopNow = By.xpath("//*[@id=\"post-61\"]/div/div[1]/div/div/div/div/div[1]/a");
     private By ViewToCart = By.linkText("VIEW CART");
 
-
-    public HomePage goToHome(){
-        driver.findElement(Home).click();
-        return this;
-    }
 
     public StorePage goToStore(){
         driver.findElement(Store).click();
@@ -69,10 +73,16 @@ public class HomePage {
         driver.findElement(shopNow).click();
         return new StorePage(driver);
     }
+
+    public HomePage goToHome(){
+        driver.findElement(Home).click();
+        return this;
+    }
     public String hoverToCart(){
         Actions actions = new Actions(driver);
         WebElement cartIcon = driver.findElement(cart);
         actions.moveToElement(cartIcon).perform();
+            pauseForDebug(2000);
         WebElement viewButton = wait.until(ExpectedConditions.elementToBeClickable(ViewToCart));
             viewButton.click();
 
