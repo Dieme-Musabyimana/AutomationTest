@@ -1,12 +1,13 @@
 package pages;
 
+import base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class EditBillingAddressPage {
-    private WebDriver driver;
+public class EditBillingAddressPage extends BasePage {
+
     public EditBillingAddressPage(WebDriver driver){
-        this.driver = driver;
+    super(driver);
     }
     private By emailField = By.id("billing_email");
     private By saveAddressButton = By.name("save_address");

@@ -1,29 +1,17 @@
 package pages;
 
+import base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
-
-public class HomePage {
-    private WebDriver driver;
-    public WebDriverWait wait;
-
-    public HomePage(WebDriver driver){
-        this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+public class HomePage extends BasePage {
+    public HomePage(WebDriver driver) {
+        super(driver);
     }
-    private void pauseForDebug(int milliseconds) {
-        try {
-            Thread.sleep(milliseconds);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
+
     private By Home = By.linkText("Home");
     private By Store = By.linkText("Store");
     private By Men = By.linkText("Men");

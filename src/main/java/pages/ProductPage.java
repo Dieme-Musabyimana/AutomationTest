@@ -1,5 +1,6 @@
 package pages;
 
+import base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -7,10 +8,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class ProductPage {
-    private WebDriver driver;
+public class ProductPage extends BasePage {
     public ProductPage(WebDriver driver){
-        this.driver = driver;
+
+        super(driver);
     }
     private By addToCartButton = By.name("add-to-cart");
     private By successAddAlert = By.cssSelector("div.woocommerce-message");

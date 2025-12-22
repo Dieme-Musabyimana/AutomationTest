@@ -1,5 +1,6 @@
 package pages;
 
+import base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,17 +13,12 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StorePage {
-    private WebDriver driver;
-    private WebDriverWait wait;
+public class StorePage extends BasePage {
     protected ProductPage basicBlueJeansPage;
 
     public StorePage(WebDriver driver) {
-        this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-
+        super(driver);
     }
-
     private By Store = By.cssSelector("h1.woocommerce-products-header__title.page-title");
     private By BasicBlueJeans = By.cssSelector("a[href*='basic-blue-jeans']");
     private By sortingDropDown = By.className("orderby");

@@ -1,20 +1,14 @@
 package pages;
 
+import base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
-
-public class CartPage {
-    private WebDriver driver;
-    public WebDriverWait wait;
-
+public class CartPage extends BasePage {
     public CartPage(WebDriver driver) {
-        this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        super(driver);
     }
 
     private By cartPageHeading = By.xpath("//*[@id=\"post-1220\"]/div/div/div/h1");

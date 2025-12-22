@@ -1,20 +1,15 @@
 package pages;
 
+import base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
-
-public class CheckoutPage {
-    private WebDriver driver;
-    private final WebDriverWait wait;
+public class CheckoutPage extends BasePage {
     public CheckoutPage(WebDriver driver){
-        this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        super(driver);
     }
     private By firstNameField = By.id("billing_first_name");
     private By lastNameField = By.id("billing_last_name");

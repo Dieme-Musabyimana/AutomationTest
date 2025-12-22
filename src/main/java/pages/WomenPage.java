@@ -1,12 +1,12 @@
 package pages;
 
+import base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class WomenPage {
-    private WebDriver driver;
+public class WomenPage extends BasePage {
     public WomenPage(WebDriver driver){
-        this.driver = driver;
+        super(driver);
     }
     private By womenPageHeading=By.xpath("//*[@id='main']/div/header/h1");
     public String getWomenPageHeading(){

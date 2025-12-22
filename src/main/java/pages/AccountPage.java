@@ -1,28 +1,20 @@
 package pages;
 
+import base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
-
-public class AccountPage {
-    public WebDriver driver;
-    private WebDriverWait wait;
+public class AccountPage extends BasePage {
     public AccountPage(WebDriver driver){
-        this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        super(driver);
     }
     private By AccountPageHeading = By.xpath("//*[@id=\"post-1235\"]/div/div[1]/div/h1");
-    private By dashboardText = By.xpath("//*[@id=\"post-1235\"]/div/div[2]/div/div[2]/div/p[2]");
 
     public String getAccountHeadingPage(){
         return driver.findElement(AccountPageHeading).getText();
     }
-
-
 
     private By usernameRegField = By.id("reg_username");
     private By emailRegField = By.id("reg_email");
