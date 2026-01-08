@@ -1,15 +1,16 @@
 package pages;
 
+import base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class AccessoriesPage {
-    public WebDriver driver;
+public class AccessoriesPage extends BasePage {
     public AccessoriesPage(WebDriver driver){
-        this.driver = driver;
+        super(driver);
     }
-    private By AccessoriesHeading = By.xpath("//*[@id=\"main\"]/div/header/h1");
+
+    private By accessoriesHeading = By.xpath("//*[@id=\"main\"]/div/header/h1");
     public String getAccessoriesHeading(){
-        return driver.findElement(AccessoriesHeading).getText().trim();
+        return driver.findElement(accessoriesHeading).getText().trim();
     }
 }

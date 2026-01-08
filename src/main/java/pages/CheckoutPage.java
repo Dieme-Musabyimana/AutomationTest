@@ -1,20 +1,16 @@
 package pages;
 
+import base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
-
-public class CheckoutPage {
-    public WebDriver driver;
-    private final WebDriverWait wait;
+public class CheckoutPage extends BasePage {
     public CheckoutPage(WebDriver driver){
-        this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));    }
+        super(driver);
+    }
     private By firstNameField = By.id("billing_first_name");
     private By lastNameField = By.id("billing_last_name");
     private By countryDropDown = By.id("billing_country");
@@ -33,13 +29,11 @@ public class CheckoutPage {
                                   String lastName,
                                   String address,
                                   String city,
-                                  String stateName, // Added this parameter
                                   String zipcode,
                                   String emailAddress,
                                  String OrderNotes
     ) {
 
-        // 1. Fill standard text fields
         driver.findElement(firstNameField).sendKeys(firstName);
         driver.findElement(lastNameField).sendKeys(lastName);
         driver.findElement(street).sendKeys(address);
@@ -47,20 +41,6 @@ public class CheckoutPage {
         driver.findElement(orderNotes).sendKeys(OrderNotes);
 
 
-
-        // 2. Handle the State safely
-        // We check if the state field exists before trying to interact with it
-//        try {
-//            WebElement stateElem = driver.findElement(By.id("billing_state"));
-//            if (stateElem.getTagName().equals("select")) {
-//                new Select(stateElem).selectByVisibleText(stateName);
-//            } else {
-//                stateElem.clear();
-//                stateElem.sendKeys(stateName);
-//            }
-//        } catch (Exception e) {
-//            System.out.println("State field not found or not required for this country.");
-//        }
 
         driver.findElement(zipCode).sendKeys(zipcode);
         driver.findElement(email).sendKeys(emailAddress);
@@ -79,6 +59,8 @@ public class CheckoutPage {
         driver.findElement(paymentMethod).click();
        driver.findElement(placeOrderButton).click();
         WebElement success = wait.until(ExpectedConditions.visibilityOfElementLocated(successMessage));
-        driver.findElement(successMessage).getText().trim();
+        success.getText().trim();
+
+
     }
 }

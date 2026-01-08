@@ -1,12 +1,12 @@
 package pages;
 
+import base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class DashboardPage {
-    public WebDriver driver;
+public class DashboardPage extends BasePage {
     public DashboardPage(WebDriver driver){
-        this.driver = driver;
+        super(driver);
     }
     private By dashboard = By.linkText("Dashboard");
     public String getDashboardMessage(){

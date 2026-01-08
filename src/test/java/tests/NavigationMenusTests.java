@@ -4,7 +4,7 @@ import base.BaseTest;
 import org.testng.annotations.Test;
 import pages.HomePage;
 
-public class HomePageTest extends BaseTest {
+public class NavigationMenusTests extends BaseTest {
 
     @Test
     public void storePageTest() {
@@ -53,7 +53,7 @@ public class HomePageTest extends BaseTest {
         var actualAccountResult = accountPage.getAccountHeadingPage();
         var expectedAccountResult = "Account";
         soft.assertEquals(actualAccountResult,expectedAccountResult,"Account redirection failed");
-    soft.assertAll();
+        soft.assertAll();
 }
 @Test
 public void aboutPageTest(){
@@ -69,9 +69,9 @@ public void aboutPageTest(){
         HomePage home = new HomePage(driver);
         var contactUsPage = home.goToContactUs();
         var actualContactResult = contactUsPage.getContactUsPageHeading();
-        var expectedContactUsResult = "Contac Us";
+        var expectedContactUsResult = "Contact Us";
         soft.assertEquals(actualContactResult,expectedContactUsResult,"Contact Us page redirection failure");
-    soft.assertAll();
+        soft.assertAll();
 }
 @Test
 public void CartPageTest(){
@@ -80,6 +80,6 @@ public void CartPageTest(){
         var actualCartResult = cartPage.getCartPageHeading();
         var expectedCartResult = "Cart";
         soft.assertEquals(actualCartResult,expectedCartResult,"Cart redirection failed");
-    soft.assertAll();
+        soft.assertAll();
 }
 }
